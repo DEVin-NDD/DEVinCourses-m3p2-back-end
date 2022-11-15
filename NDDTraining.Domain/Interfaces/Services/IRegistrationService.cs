@@ -8,5 +8,8 @@ namespace NDDTraining.Domain.Interfaces.Services
 {
     public interface IRegistrationService
     {
+        public void SendEMail();
+        public void ValidateRegistration();
+
     }
 }
