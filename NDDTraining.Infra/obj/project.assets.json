@@ -41,7 +41,7 @@
       "Humanizer.Core/2.14.1": {
         "type": "package",
         "compile": {
-          "lib/net6.0/Humanizer.dll": {}
+          "lib/net6.0/_._": {}
         },
         "runtime": {
           "lib/net6.0/Humanizer.dll": {}
@@ -170,7 +170,7 @@
           "Mono.TextTemplating": "2.2.1"
         },
         "compile": {
-          "lib/net6.0/Microsoft.EntityFrameworkCore.Design.dll": {}
+          "lib/net6.0/_._": {}
         },
         "runtime": {
           "lib/net6.0/Microsoft.EntityFrameworkCore.Design.dll": {}
@@ -288,7 +288,7 @@
           "System.Text.Json": "7.0.0"
         },
         "compile": {
-          "lib/net6.0/Microsoft.Extensions.DependencyModel.dll": {}
+          "lib/net6.0/_._": {}
         },
         "runtime": {
           "lib/net6.0/Microsoft.Extensions.DependencyModel.dll": {}
@@ -526,7 +526,7 @@
           "System.CodeDom": "4.4.0"
         },
         "compile": {
-          "lib/netstandard2.0/Mono.TextTemplating.dll": {}
+          "lib/netstandard2.0/_._": {}
         },
         "runtime": {
           "lib/netstandard2.0/Mono.TextTemplating.dll": {}
@@ -544,7 +544,7 @@
       "System.CodeDom/4.4.0": {
         "type": "package",
         "compile": {
-          "ref/netstandard2.0/System.CodeDom.dll": {}
+          "ref/netstandard2.0/_._": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.CodeDom.dll": {}
@@ -3281,25 +3281,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Usuario\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/brunasimoesmoita/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\Usuario\\Desktop\\Nova pasta (3)\\Src\\NDDTraining.Infra\\NDDTraining.Infra.csproj",
+      "projectUniqueName": "/Users/brunasimoesmoita/Documents/backend/teste/DEVinCourses-m3p2-back-end/NDDTraining.Infra/NDDTraining.Infra.csproj",
       "projectName": "NDDTraining.Infra",
-      "projectPath": "c:\\Users\\Usuario\\Desktop\\Nova pasta (3)\\Src\\NDDTraining.Infra\\NDDTraining.Infra.csproj",
-      "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\Usuario\\Desktop\\Nova pasta (3)\\Src\\NDDTraining.Infra\\obj\\",
+      "projectPath": "/Users/brunasimoesmoita/Documents/backend/teste/DEVinCourses-m3p2-back-end/NDDTraining.Infra/NDDTraining.Infra.csproj",
+      "packagesPath": "/Users/brunasimoesmoita/.nuget/packages/",
+      "outputPath": "/Users/brunasimoesmoita/Documents/backend/teste/DEVinCourses-m3p2-back-end/NDDTraining.Infra/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/brunasimoesmoita/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
@@ -3311,8 +3305,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "c:\\Users\\Usuario\\Desktop\\Nova pasta (3)\\Src\\NDDTraining.Domain\\NDDTraining.Domain.csproj": {
-              "projectPath": "c:\\Users\\Usuario\\Desktop\\Nova pasta (3)\\Src\\NDDTraining.Domain\\NDDTraining.Domain.csproj"
+            "/Users/brunasimoesmoita/Documents/backend/teste/DEVinCourses-m3p2-back-end/NDDTraining.Domain/NDDTraining.Domain.csproj": {
+              "projectPath": "/Users/brunasimoesmoita/Documents/backend/teste/DEVinCourses-m3p2-back-end/NDDTraining.Domain/NDDTraining.Domain.csproj"
             }
           }
         }
@@ -3348,7 +3342,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -3357,7 +3352,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.402/RuntimeIdentifierGraph.json"
       }
     }
   }
