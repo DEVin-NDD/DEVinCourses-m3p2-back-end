@@ -8,5 +8,7 @@ namespace NDDTraining.Domain.Interfaces.Services
 {
     public interface IModuleService
     {
+        public void GetModule();
+        public void FinishClassrom();
     }
 }
