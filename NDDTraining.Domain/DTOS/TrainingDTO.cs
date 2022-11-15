@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace NDDTraining.Domain.DTOS
+{
+    public class TrainingDTO
+    {
+        public int Id { get; internal set; }
+        public string Url { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Teacher { get; set; }
+        public TimeSpan Duration { get; set; }
+        public bool Active { get; set; }
+        public string Category { get; set; }
+        // public virtual List<Module> Module { get; set; }
+
+          public TrainingDTO()
+        {
+        }
+          public TrainingDTO(Training training)
+        {
+            Url =  training.Url;
+            Title = training.Title;
+            Description = training.Description;
+            Teacher = training.Teacher;
+            Duration =  training.Duration;
+            Active = training.Active;
+            Category = training.Category;
+        }
+          public TrainingDTO(TrainingDTO training)
+        {
+            Url =  training.Url;
+            Title = training.Title;
+            Description = training.Description;
+            Teacher = training.Teacher;
+            Duration =  training.Duration;
+            Active = training.Active;
+            Category = training.Category;
+        }
+    }
+}
