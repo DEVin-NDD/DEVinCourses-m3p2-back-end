@@ -6,6 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.3.0" />
+  </ItemGroup>
+
    <ItemGroup>	   
     <ProjectReference Include="..\NDDTraining.Infra\NDDTraining.Infra.csproj" /> 
      <ProjectReference Include="..\NDDTraining.Domain\NDDTraining.Domain.csproj" /> 
