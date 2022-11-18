@@ -1,10 +1,10 @@
 using System.Text;
-using NDDTraining.API.Security;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using NDDTraining.DI.IOC;
 using NDDTraining.API.Configs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using NDDTraining.Domain.Services.Security;
 
 var builder = WebApplication.CreateBuilder(args);
 

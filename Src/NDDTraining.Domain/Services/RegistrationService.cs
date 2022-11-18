@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Escola.Domain.Exceptions;
 using NDDTraining.Domain.DTOS;
 using NDDTraining.Domain.Exceptions;
 using NDDTraining.Domain.Interfaces.Repositories;
@@ -36,24 +35,21 @@ namespace NDDTraining.Domain.Services
             {
                 throw new DuplicateException("Registro ja existe na base de dados!");
             }
-
-            if (registration.Status == "Progress")
+            switch (registration.Status)
             {
-                _registrationRepository.InsertListProgress(registration);
-
-            }
-
-            if (registration.Status == "Available")
-            {
-                _registrationRepository.InsertListAvailable(registration);
-            }
-            if (registration.Status == "Finished")
-            {
-                _registrationRepository.InsertListFinished(registration);
-            }
-            if (registration.Status == "Suspended")
-            {
-                _registrationRepository.InsertListSuspended(registration);
+                case "Progress":
+                    _registrationRepository.InsertListProgress(registration);
+                    break;
+                case "Available":
+                    _registrationRepository.InsertListAvailable(registration);
+                    break;
+                case "Finished":
+                    _registrationRepository.InsertListFinished(registration);
+                    break;
+                case "Suspended":
+                    _registrationRepository.InsertListSuspended(registration);
+                    break;
+                
             }
             _registrationRepository.Insert(new Registration(registration));
 
