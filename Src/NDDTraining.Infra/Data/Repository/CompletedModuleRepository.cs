@@ -17,9 +17,9 @@ namespace NDDTraining.Infra.Data.Repository
         }
       
 
-        public List<Module> GetAllModules()
+        public List<CompletedModule> GetAllModules()
         {
-            return _context.Modules.ToList();
+            return _context.CompletedModule.Where(x => x.RegistrationId == 1).ToList();
         }
 
         public void CompletedInsert(CompletedModule completed)

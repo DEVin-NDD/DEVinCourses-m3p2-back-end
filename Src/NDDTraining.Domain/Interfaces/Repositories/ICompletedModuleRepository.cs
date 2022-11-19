@@ -10,7 +10,7 @@ namespace NDDTraining.Domain.Interfaces.Repositories
     public interface ICompletedModuleRepository
     {
         public void CompletedInsert(CompletedModule completed);
-        public List<Module> GetAllModules();
+        public List<CompletedModule> GetAllModules();
         public List<Registration> GetAllRegistration();
     }
 }

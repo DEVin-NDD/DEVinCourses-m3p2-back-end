@@ -17,7 +17,7 @@ namespace NDDTraining.Domain.Services
 
         public List<int> VerifyAllCompletedModules()
         {
-            return  _completedModuleRepository.GetAllModules().Where(x => x.StatusModule == "finalizado").Select(x=>x.Id).ToList();
+            return  _completedModuleRepository.GetAllModules().Select(x=>x.ModuleId).ToList();
 
         }
 
@@ -26,7 +26,7 @@ namespace NDDTraining.Domain.Services
             if (VerifyAllCompletedModules().Any() && _completedModuleRepository.GetAllModules().Select(x=>x.TrainingId) == _completedModuleRepository.GetAllRegistration().Select(x=>x.TrainingId))
             {
                
-               _completedModuleRepository.CompletedInsert(new CompletedModule());
+               _completedModuleRepository.CompletedInsert(new CompletedModule(int registration, int module));
             }
             
 
