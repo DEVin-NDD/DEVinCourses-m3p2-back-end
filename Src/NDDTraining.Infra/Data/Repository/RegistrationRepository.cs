@@ -13,10 +13,6 @@ namespace NDDTraining.Infra.Data.Repository
     public class RegistrationRepository : BaseRepository<Registration, int>, IRegistrationRepository
 
     {
-        public List<RegistrationDTO> SuspendedList = new List<RegistrationDTO>();
-        public List<RegistrationDTO> FinishedList = new List<RegistrationDTO>();
-        public List<RegistrationDTO> ProgressList = new List<RegistrationDTO>();
-        public List<RegistrationDTO> AvailableList = new List<RegistrationDTO>();
 
         public RegistrationRepository(NDDTrainingDbContext context) : base(context)
         {
@@ -32,27 +28,6 @@ namespace NDDTraining.Infra.Data.Repository
         {
             _context.Registrations.Add(registration);
             _context.SaveChanges();
-        }
-
-
-
-        public void InsertListProgress(RegistrationDTO register)
-        {
-            ProgressList.Add(register);
-
-        }
-        public void InsertListSuspended(RegistrationDTO register)
-        {
-            SuspendedList.Add(register);
-
-        }
-        public void InsertListAvailable(RegistrationDTO register)
-        {
-            AvailableList.Add(register);
-        }
-        public void InsertListFinished(RegistrationDTO register)
-        {
-            FinishedList.Add(register);
         }
 
         public bool RegistrationDuplicate(int id)

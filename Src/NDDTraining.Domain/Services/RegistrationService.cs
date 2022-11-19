@@ -16,7 +16,7 @@ namespace NDDTraining.Domain.Services
     {
         private readonly IRegistrationRepository _registrationRepository;
         private readonly IEmailService _emailService;
-        private readonly IUserService _userService;
+        private readonly ICompletedModuleService _completedModuleService;
         private readonly ITrainingService _trainingService;
 
 
@@ -42,6 +42,7 @@ namespace NDDTraining.Domain.Services
 
           
             _registrationRepository.Insert(new Registration(registration));
+            _completedModuleService.Validate(registration);
 
             var training = _trainingService.GetById(registration.TrainingId);
             var user = new User()

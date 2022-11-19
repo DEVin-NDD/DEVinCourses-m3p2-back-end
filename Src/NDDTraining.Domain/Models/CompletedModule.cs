@@ -7,4 +7,17 @@ public class CompletedModule
     public int RegistrationId { get; set; }
     public virtual Module Module { get; set; }
     public virtual Registration Registration { get; set; }
+
+    public CompletedModule()
+    {
+ 
+    }
+
+    public CompletedModule( int moduleId, int registrationId)
+    {
+ 
+        ModuleId = moduleId;
+        RegistrationId = registrationId;
+        
+    }
 }
