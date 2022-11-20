@@ -40,6 +40,10 @@ namespace NDDTraining.API.Configs
                     status = HttpStatusCode.NotFound;
                     message = exception.Message;
                     break;
+                case DbUpdateException:
+                    status = HttpStatusCode.NotFound;
+                    message = exception.Message;
+                    break;
                 default:
                     status = HttpStatusCode.InternalServerError;
                     message = "An internal error ocurred. Please contact IT";
