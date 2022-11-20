@@ -20,14 +20,7 @@ namespace NDDTraining.API.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            try
-            {
-                return Ok(_registrationService.GetAll());
-            }
-            catch
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
+            return Ok(_registrationService.GetAll());
         }
 
         [HttpGet]
@@ -52,9 +45,9 @@ namespace NDDTraining.API.Controllers
         [HttpDelete("{Id}")]
         public ActionResult Delete(
          [FromRoute] int Id)
-        {          
+        {
             _registrationService.Delete(Id);
             return StatusCode(StatusCodes.Status204NoContent);
-        }      
+        }
     }
 }

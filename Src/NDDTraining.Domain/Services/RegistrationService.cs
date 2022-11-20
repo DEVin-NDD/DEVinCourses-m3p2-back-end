@@ -16,7 +16,6 @@ namespace NDDTraining.Domain.Services
     {
         private readonly IRegistrationRepository _registrationRepository;
         private readonly IEmailService _emailService;
-        private readonly IUserService _userService;
         private readonly ITrainingService _trainingService;
 
 
@@ -26,7 +25,6 @@ namespace NDDTraining.Domain.Services
         {
             _registrationRepository = registrationRepository;
             _emailService = emailService;
-            // _userService = userService;
             _trainingService = trainingService;
         }
 
@@ -40,7 +38,7 @@ namespace NDDTraining.Domain.Services
         public void Insert(RegistrationDTO registration)
         {
 
-          
+
             _registrationRepository.Insert(new Registration(registration));
 
             var training = _trainingService.GetById(registration.TrainingId);
@@ -56,11 +54,8 @@ namespace NDDTraining.Domain.Services
             SendEMail(training.Title, user, training.Description, user.Name, training.Duration, training.Teacher, training.Url);
 
 
-        }
 
-        public void ValidateRegistration() { 
 
-           
         }
 
 
@@ -73,7 +68,7 @@ namespace NDDTraining.Domain.Services
              TimeSpan duration,
              string teacher,
              string url
-            
+
             )
         {
             _emailService.BuildAndSendMail(new Email()
@@ -113,18 +108,18 @@ namespace NDDTraining.Domain.Services
             _registrationRepository.Delete(id);
         }
 
-       public IList<RegistrationDTO> GetRegistrationsByUser(int userId, string status)
+        public IList<RegistrationDTO> GetRegistrationsByUser(int userId, string status)
         {
             IEnumerable<Registration> trainingWithRegisters = _registrationRepository
                     .GetRegistrationsByUser(userId);
 
-            if(!String.IsNullOrEmpty(status))
+            if (!String.IsNullOrEmpty(status))
             {
                 var statusEnum = status.ConvertEnum<Status>();
 
                 trainingWithRegisters = trainingWithRegisters
                     .Where(r => r.Status == statusEnum);
-                
+
             }
 
             return trainingWithRegisters

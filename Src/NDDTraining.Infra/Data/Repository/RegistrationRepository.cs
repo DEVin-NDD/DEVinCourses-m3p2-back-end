@@ -26,6 +26,11 @@ namespace NDDTraining.Infra.Data.Repository
 
         public override void Insert(Registration registration)
         {
+            if( _context.Registrations.Any(x=>x.Id != registration.Id))
+            {
+                throw new DbUpdateException("Usuário informado não consta na base de dados");
+            }
+
             _context.Registrations.Add(registration);
             _context.SaveChanges();
         }
