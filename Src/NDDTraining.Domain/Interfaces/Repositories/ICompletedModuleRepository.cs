@@ -1,3 +1,4 @@
+using NDDTraining.Domain.DTOS;
 using NDDTraining.Domain.Models;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace NDDTraining.Domain.Interfaces.Repositories
     public interface ICompletedModuleRepository
     {
         public void Insert(CompletedModule completed);
-        public List<CompletedModule> GetCompletModuleRegistrationsId(int registrationId);
+        public List<CompletedModule> GetCompletModuleRegistrationsId(CompletedModuleDTO completed);
 
     }
 }

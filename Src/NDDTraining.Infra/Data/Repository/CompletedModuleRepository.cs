@@ -1,6 +1,7 @@
-﻿//using NDDTraining.Domain.Interfaces.Repositories;
-//using NDDTraining.Domain.Models;
-//using NDDTraining.Infra.Data.Context;
+﻿using NDDTraining.Domain.Interfaces.Repositories;
+using NDDTraining.Domain.Models;
+using NDDTraining.Infra.Data.Context;
+using NDDTraining.Domain.DTOS;
 using NDDTraining.Domain.Interfaces.Repositories;
 using NDDTraining.Domain.Models;
 using NDDTraining.Infra.Data.Context;
@@ -12,8 +13,7 @@ using System.Threading.Tasks;
 
 namespace NDDTraining.Infra.Data.Repository
 {
-    namespace NDDTraining.Infra.Data.Repository
-    {
+    
         public class CompletedModuleRepository : BaseRepository<CompletedModule, int>, ICompletedModuleRepository
         {
 
@@ -21,12 +21,18 @@ namespace NDDTraining.Infra.Data.Repository
             {
             }
 
-            public List<CompletedModule> GetCompletModuleRegistrationsId(int registrationId)
+            public List<CompletedModule> GetCompletModuleRegistrationsId(CompletedModuleDTO completed)
             {
 
-                return _context.CompletedModule.Where(m => m.RegistrationId == registrationId).ToList();
+                return _context.CompletedModule.Where(m => m.RegistrationId == completed.RegistrationId).ToList();
+            }
+
+            public void Insert(CompletedModule completed)
+            {
+                _context.CompletedModule.Add(completed);
+                _context.SaveChanges();
             }
         }
     }
-}
+
 

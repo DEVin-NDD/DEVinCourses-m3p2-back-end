@@ -10,7 +10,6 @@ namespace NDDTraining.Domain.Interfaces.Services
 {
     public interface ICompletedModuleService
     {
-        public List<int> VerifyAllCompletedModules();
-        public void Validate();
+        public void Insert(CompletedModuleDTO completed);
     }
 }
