@@ -20,6 +20,10 @@ namespace NDDTraining.Domain.Models
             Description = activity.Description;
 
         }
+
+        //Apagar depois
+        public TrainingActivity(){}
+
     }
 
 

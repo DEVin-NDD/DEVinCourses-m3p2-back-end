@@ -3,20 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using NDDTraining.Infra.Data.Context;
 
 #nullable disable
 
-namespace NDDTraining.Infra.Data.Migrations
+namespace NDDTraining.Infra.Migrations
 {
     [DbContext(typeof(NDDTrainingDbContext))]
-    [Migration("20221121014949_AddSeed")]
-    partial class AddSeed
+    partial class NDDTrainingDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -314,6 +311,32 @@ namespace NDDTraining.Infra.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("NDDTraining.Domain.Models.TrainingActivity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("ID");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("VARCHAR")
+                        .HasColumnName("DESCRIPTION");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("VARCHAR")
+                        .HasColumnName("TITLE");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ACTIVITY", (string)null);
+                });
+
             modelBuilder.Entity("NDDTraining.Domain.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -339,9 +362,9 @@ namespace NDDTraining.Infra.Data.Migrations
                         .HasColumnType("VARCHAR")
                         .HasColumnName("EMAIL");
 
-                    b.Property<string>("Image")
-                        .IsRequired()
-                        .HasColumnType("VARCHAR")
+                    b.Property<byte[]>("Image")
+                        .HasMaxLength(8000)
+                        .HasColumnType("VARBINARY")
                         .HasColumnName("IMAGE");
 
                     b.Property<string>("Name")
@@ -430,6 +453,11 @@ namespace NDDTraining.Infra.Data.Migrations
             modelBuilder.Entity("NDDTraining.Domain.Models.Training", b =>
                 {
                     b.Navigation("Modules");
+                });
+
+            modelBuilder.Entity("NDDTraining.Domain.Models.User", b =>
+                {
+                    b.Navigation("Registrations");
                 });
 #pragma warning restore 612, 618
         }

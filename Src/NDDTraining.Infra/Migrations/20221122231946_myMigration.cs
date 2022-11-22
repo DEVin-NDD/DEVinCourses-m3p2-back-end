@@ -5,14 +5,28 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace NDDTraining.Infra.Data.Migrations
+namespace NDDTraining.Infra.Migrations
 {
     /// <inheritdoc />
-    public partial class AddSeed : Migration
+    public partial class myMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "ACTIVITY",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    TITLE = table.Column<string>(type: "VARCHAR(100)", maxLength: 100, nullable: false),
+                    DESCRIPTION = table.Column<string>(type: "VARCHAR(200)", maxLength: 200, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ACTIVITY", x => x.ID);
+                });
+
             migrationBuilder.CreateTable(
                 name: "TRAININGS",
                 columns: table => new
@@ -57,7 +71,7 @@ namespace NDDTraining.Infra.Data.Migrations
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TrainingId = table.Column<int>(type: "int", nullable: false),
+                    TrainingId = table.Column<int>(type: "int", nullable: true),
                     TITLEMODULE = table.Column<string>(name: "TITLE_MODULE", type: "VARCHAR(100)", maxLength: 100, nullable: false),
                     LINK = table.Column<string>(type: "VARCHAR(200)", maxLength: 200, nullable: false),
                     IMAGE = table.Column<string>(type: "VARCHAR(200)", maxLength: 200, nullable: false),
@@ -71,8 +85,7 @@ namespace NDDTraining.Infra.Data.Migrations
                         name: "FK_MODULES_TRAININGS_TrainingId",
                         column: x => x.TrainingId,
                         principalTable: "TRAININGS",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                 });
 
             migrationBuilder.CreateTable(
@@ -187,6 +200,9 @@ namespace NDDTraining.Infra.Data.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "ACTIVITY");
+
             migrationBuilder.DropTable(
                 name: "COMPLETED_MODULE");
 

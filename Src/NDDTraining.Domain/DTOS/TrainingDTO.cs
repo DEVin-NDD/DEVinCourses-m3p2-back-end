@@ -28,7 +28,7 @@ namespace NDDTraining.Domain.DTOS
             Duration = training.Duration;
             Active = training.Active;
             Category = training.Category;
-            ReleaseDate = training.ReleaseDate;
+            //ReleaseDate = training.ReleaseDate;
         }
     }
 }

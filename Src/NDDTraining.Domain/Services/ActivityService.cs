@@ -32,5 +32,16 @@ namespace NDDTraining.Domain.Services
         {
             return _activityRepository.GetAll(new Paging(20,0));
         }
+
+        public void Update(int id, string description)
+        {
+            var putActivity = _activityRepository.GetById(id);
+            if(putActivity == null)
+            {
+                throw new NotFoundException("ID não identificado");
+            }
+            putActivity.Description = description;
+            _activityRepository.Update(putActivity);
+        }
     }
 }

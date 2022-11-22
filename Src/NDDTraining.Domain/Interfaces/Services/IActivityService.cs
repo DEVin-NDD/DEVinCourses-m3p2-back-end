@@ -12,5 +12,6 @@ namespace NDDTraining.Domain.Interfaces.Services
     {
         void Insert(TrainingActivityDTO activity);
         IList<TrainingActivity> getAll();
+        void Update(int id, string description);
     }
 }
