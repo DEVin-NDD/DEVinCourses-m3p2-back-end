@@ -27,7 +27,7 @@ namespace NDDTraining.API.Controllers
             [FromRoute] int id
         )
         {
-            if (_userService.ValidSize(changedUser.Image))
+            if (_userService.InvalidSize(changedUser.Image))
             {
                 changedUser.Image = String.Empty;
             }
