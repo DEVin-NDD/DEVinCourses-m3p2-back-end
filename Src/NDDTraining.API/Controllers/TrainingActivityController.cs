@@ -6,8 +6,9 @@ using NDDTraining.Domain.Models;
 
 namespace NDDTraining.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
+
     public class TrainingActivityController : ControllerBase
     {
         private readonly ITrainingActivityService _activityService;
@@ -18,26 +19,16 @@ namespace NDDTraining.API.Controllers
         }
 
         [HttpPost]
-
-        public IActionResult Insert(TrainingActivityDTO activity) 
+        public IActionResult Insert(TrainingActivityDTO activity)
         {
             _activityService.Insert(activity);
-
-            return  Ok(activity);
+            return Ok(activity);
         }
-
 
         [HttpGet("getAll")]
         public IActionResult GetAll()
         {
-           return Ok(_activityService.getAll());
-        }
-
-        [HttpPut("IdActivity")]
-        public IActionResult PutByIdActivity([FromBody] int id, string description)
-        {
-            _activityService.Update(id, description);
-            return Ok();
+            return Ok(_activityService.GetAll());
         }
     }
 }

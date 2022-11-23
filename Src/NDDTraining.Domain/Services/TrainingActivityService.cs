@@ -16,7 +16,7 @@ namespace NDDTraining.Domain.Services
     {
         private readonly ITrainingActivityRepository _activityRepository;
 
-        public TrainingActivityService (ITrainingActivityRepository activityService)
+        public TrainingActivityService(ITrainingActivityRepository activityService)
         {
             _activityRepository = activityService;
         }
@@ -28,15 +28,15 @@ namespace NDDTraining.Domain.Services
 
         }
 
-        public IList<TrainingActivity> getAll()
+        public IList<TrainingActivity> GetAll()
         {
-            return _activityRepository.GetAll(new Paging(20,0));
+            return _activityRepository.GetAll(new Paging(20, 0));
         }
 
         public void Update(int id, string description)
         {
             var putActivity = _activityRepository.GetById(id);
-            if(putActivity == null)
+            if (putActivity == null)
             {
                 throw new NotFoundException("ID não identificado");
             }
