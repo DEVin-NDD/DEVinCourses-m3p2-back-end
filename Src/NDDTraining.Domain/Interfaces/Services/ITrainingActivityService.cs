@@ -11,6 +11,7 @@ namespace NDDTraining.Domain.Interfaces.Services
     public interface ITrainingActivityService
     {
         void Insert(TrainingActivityDTO activity);
-        IList<TrainingActivity> getAll();
+        IList<TrainingActivity> GetAll();
+        void Update(int id, string description);
     }
 }

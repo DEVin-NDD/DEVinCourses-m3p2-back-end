@@ -1,13 +1,14 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NDDTraining.Domain.Interfaces.Services;
 using NDDTraining.Domain.DTOS;
-using NDDTraining.Domain.Models;
 
 namespace NDDTraining.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
+    [Authorize]
+
     public class TrainingActivityController : ControllerBase
     {
         private readonly ITrainingActivityService _activityService;
@@ -18,19 +19,23 @@ namespace NDDTraining.API.Controllers
         }
 
         [HttpPost]
-
-        public IActionResult Insert(TrainingActivityDTO activity) 
+        public IActionResult Insert(TrainingActivityDTO activity)
         {
             _activityService.Insert(activity);
-
-            return  Ok(activity);
+            return Ok(activity);
         }
-
 
         [HttpGet("getAll")]
         public IActionResult GetAll()
         {
-           return Ok(_activityService.getAll());
+            return Ok(_activityService.GetAll());
+        }
+
+        [HttpPut()]
+        public IActionResult PutByIdActivity(int id, string description)
+        {
+            _activityService.Update(id, description);
+            return Ok();
         }
     }
 }

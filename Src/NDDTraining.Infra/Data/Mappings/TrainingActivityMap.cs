@@ -17,18 +17,18 @@ namespace NDDTraining.Infra.Data.Mappings
         {
             entity.ToTable("ACTIVITY");
 
-            entity.HasKey(m => m.Id);
+            entity.HasKey(a => a.Id);
 
-            entity.Property(m => m.Id)
+            entity.Property(a => a.Id)
                 .HasColumnName("ID");
 
-            entity.Property(m => m.Title)
+            entity.Property(a => a.Title)
                 .HasColumnName("TITLE")
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(100)
                 .IsRequired();
 
-            entity.Property(m => m.Description)
+            entity.Property(a => a.Description)
                 .HasColumnName("DESCRIPTION")
                 .HasColumnType("VARCHAR")
                 .HasMaxLength(200)
