@@ -18,12 +18,8 @@ namespace NDDTraining.Domain.Models
             Id = activity.Id;
             Title = activity.Title;
             Description = activity.Description;
-
         }
-
-        //Apagar depois
         public TrainingActivity(){}
-
     }
 
 

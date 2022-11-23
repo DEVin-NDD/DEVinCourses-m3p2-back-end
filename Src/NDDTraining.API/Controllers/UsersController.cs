@@ -27,10 +27,10 @@ namespace NDDTraining.API.Controllers
             [FromRoute] int id
         )
         {
-            // if (_userService.ValidSize(changedUser.Image))
-            // {
-            //     changedUser.Image = String.Empty;
-            // }
+            if (_userService.ValidSize(changedUser.Image))
+            {
+                changedUser.Image = String.Empty;
+            }
             _userService.Update(changedUser, id);
 
             return NoContent();
