@@ -13,7 +13,7 @@ namespace NDDTraining.Domain.DTOS
         public TimeSpan Duration { get; set; }
         public bool Active { get; set; }
         public string Category { get; set; }
-        // public virtual List<Module> Module { get; set; }
+        public DateTime ReleaseDate { get; set; }
 
         public TrainingDTO()
 		{
@@ -28,16 +28,7 @@ namespace NDDTraining.Domain.DTOS
             Duration = training.Duration;
             Active = training.Active;
             Category = training.Category;
-        }
-        public TrainingDTO(TrainingDTO training)
-        {
-            Url = training.Url;
-            Title = training.Title;
-            Description = training.Description;
-            Teacher = training.Teacher;
-            Duration = training.Duration;
-            Active = training.Active;
-            Category = training.Category;
+            ReleaseDate = training.ReleaseDate;
         }
     }
 }

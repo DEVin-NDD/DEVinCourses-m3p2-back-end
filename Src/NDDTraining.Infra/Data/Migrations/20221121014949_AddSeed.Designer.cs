@@ -90,7 +90,7 @@ namespace NDDTraining.Infra.Data.Migrations
                         .HasColumnType("VARCHAR")
                         .HasColumnName("TITLE_MODULE");
 
-                    b.Property<int>("TrainingId")
+                    b.Property<int?>("TrainingId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -339,9 +339,9 @@ namespace NDDTraining.Infra.Data.Migrations
                         .HasColumnType("VARCHAR")
                         .HasColumnName("EMAIL");
 
-                    b.Property<byte[]>("Image")
-                        .HasMaxLength(8000)
-                        .HasColumnType("VARBINARY")
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("VARCHAR")
                         .HasColumnName("IMAGE");
 
                     b.Property<string>("Name")
@@ -398,13 +398,9 @@ namespace NDDTraining.Infra.Data.Migrations
 
             modelBuilder.Entity("NDDTraining.Domain.Models.Module", b =>
                 {
-                    b.HasOne("NDDTraining.Domain.Models.Training", "Training")
+                    b.HasOne("NDDTraining.Domain.Models.Training", null)
                         .WithMany("Modules")
-                        .HasForeignKey("TrainingId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Training");
+                        .HasForeignKey("TrainingId");
                 });
 
             modelBuilder.Entity("NDDTraining.Domain.Models.Registration", b =>
@@ -434,11 +430,6 @@ namespace NDDTraining.Infra.Data.Migrations
             modelBuilder.Entity("NDDTraining.Domain.Models.Training", b =>
                 {
                     b.Navigation("Modules");
-                });
-
-            modelBuilder.Entity("NDDTraining.Domain.Models.User", b =>
-                {
-                    b.Navigation("Registrations");
                 });
 #pragma warning restore 612, 618
         }
