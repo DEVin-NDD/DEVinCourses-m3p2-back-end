@@ -31,5 +31,12 @@ namespace NDDTraining.API.Controllers
         {
             return Ok(_activityService.GetAll());
         }
+
+        [HttpPut()]
+        public IActionResult PutByIdActivity(int id, string description)
+        {
+            _activityService.Update(id, description);
+            return Ok();
+        }
     }
 }
