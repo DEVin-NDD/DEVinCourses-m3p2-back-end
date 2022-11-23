@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NDDTraining.Domain.Interfaces.Services;
 using NDDTraining.Domain.DTOS;
@@ -8,6 +9,7 @@ namespace NDDTraining.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class TrainingActivityController : ControllerBase
     {
         private readonly ITrainingActivityService _activityService;
@@ -33,8 +35,8 @@ namespace NDDTraining.API.Controllers
            return Ok(_activityService.getAll());
         }
 
-        [HttpPut("IdActivity")]
-        public IActionResult PutByIdActivity([FromBody] int id, string description)
+        [HttpPut()]
+        public IActionResult PutByIdActivity(int id, string description)
         {
             _activityService.Update(id, description);
             return Ok();
