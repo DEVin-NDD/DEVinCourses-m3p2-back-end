@@ -9,7 +9,7 @@ namespace NDDTraining.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    //[Authorize]
 
 
     public class RegistrationsController : Controller
@@ -31,11 +31,11 @@ namespace NDDTraining.API.Controllers
         [HttpGet]
         [Route("~/api/Users/{userId}/Registrations")]
         public IActionResult GetByUser(
-                    [FromRoute] int userId,
-                    [FromQuery] string status,
-                    int skip = 0,
-                    int take = 20
-                )
+            [FromRoute] int userId,
+            [FromQuery] string status,
+            int skip = 0,
+            int take = 20
+        )
         {
             var paging = new Paging(skip, take);
             return Ok(_registrationService.GetRegistrationsByUser(userId, status, paging));
