@@ -47,14 +47,12 @@ namespace NDDTraining.Domain.Services
 
             var training = _trainingService.GetById(registration.TrainingId);
 
-            var user = _user.GetAll();
+            var user = _user.GetById(registration.UserId);
 
            
 
       
             SendEMail(training.Title, user, user.Name,user.Email, training.Description, training.Duration, training.Teacher, training.Url);
-
-
         }
 
         public void ValidateRegistration() { 
@@ -117,7 +115,10 @@ namespace NDDTraining.Domain.Services
        public IList<RegistrationDTO> GetRegistrationsByUser(int userId, string status, Paging paging)
         {
             IEnumerable<Registration> trainingWithRegisters = _registrationRepository
-                    .GetRegistrationsByUser(userId, paging);
+                .GetRegistrationsByUser(userId, paging);
+
+            if(trainingWithRegisters.Count() == 0)
+                throw new NotFoundException("nenhum registro encontrado!");
 
             if(!String.IsNullOrEmpty(status))
             {

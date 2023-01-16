@@ -9,7 +9,7 @@ namespace NDDTraining.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-[Authorize]
+//[Authorize]
 public class TrainingsController : ControllerBase
 {
     private readonly ITrainingService _trainingService;
